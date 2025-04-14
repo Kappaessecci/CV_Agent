@@ -2,7 +2,9 @@ import streamlit as st
 from utils import parser, templates
 from models.model import optimize_cv
 
+st.image("assets/Logo_gruppo.png", width=150)
 st.title("🧠 CV Agent")
+st.subheader("Il tuo alleato per creare un curriculum perfetto, per il lavoro dei tuoi sogni!")
 
 uploaded_cv = st.file_uploader("📄 Carica il tuo CV (PDF)", type=["pdf"])
 job_description = st.text_area("💼 Inserisci la descrizione della posizione lavorativa")
