@@ -2,7 +2,7 @@ import streamlit as st
 from utils import parser, templates
 from models.model import optimize_cv
 
-st.image("assets/Logo_gruppo.png", width=150)
+st.image("assets/Logo_gruppo.jpeg", width=150)
 st.title("🧠 CV Agent")
 st.subheader("Il tuo alleato per creare un curriculum perfetto, per il lavoro dei tuoi sogni!")
 
