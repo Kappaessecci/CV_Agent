@@ -2,9 +2,9 @@ import streamlit as st
 from utils import parser, templates
 from models.model import optimize_cv
 
-st.title("🧠 AI CV Optimizer")
+st.title("🧠 CV Agent")
 
-uploaded_cv = st.file_uploader("📄 Carica il tuo CV (PDF o DOCX)", type=["pdf", "docx"])
+uploaded_cv = st.file_uploader("📄 Carica il tuo CV (PDF)", type=["pdf"])
 job_description = st.text_area("💼 Inserisci la descrizione della posizione lavorativa")
 
 if st.button("🚀 Ottimizza CV"):
