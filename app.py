@@ -3,7 +3,12 @@ from utils import parser, templates
 
 from models.model import optimize_cv
 
-api_key = 'AIzaSyB3YWa0LLWwymJtQWkvBc6kX0Ld7vYhGHc'
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+api_key = os.getenv("API_KEY")
+
 
 st.image("assets/Logo_gruppo.jpeg", width=150)
 st.title("🧠 CV Agent")
