@@ -1,17 +1,22 @@
+from fpdf import FPDF
 
 def generate_pdf(response):
     """
     Function to generate a PDF from the response.
     """
-    # Assuming response is a dictionary with 'content' key containing the text
-    content = response.get('content', '')
+    # Estrai il testo dalla risposta JSON
+    text = response['candidates'][0]['content']['parts'][0]['text']
     
-    # Create a PDF file from the content
-    pdf_file = f"CV_Ottimizzato.pdf"
-    
-    # Here you would use a library like FPDF or ReportLab to create the PDF
-    # For simplicity, let's just write the content to a text file for now
-    with open(pdf_file, 'w') as f:
-        f.write(content)
-    
-    return pdf_file
+    # Crea un oggetto PDF
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+
+    # Imposta il font
+    pdf.set_font("Arial", size=12)
+
+    # Aggiungi il testo al PDF
+    pdf.multi_cell(0, 10, text)
+
+    # Salva il PDF
+    pdf_file = "CV_Ottimizzato.pdf"

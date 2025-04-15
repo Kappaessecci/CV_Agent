@@ -3,7 +3,7 @@ from utils import parser, templates
 
 from models.model import optimize_cv, api_query
 
-api_key = 'AIzaSyAVf4XWOsOSMBEugbFsq5wd81V_Q8qqBGM'
+api_key = 'AIzaSyB3YWa0LLWwymJtQWkvBc6kX0Ld7vYhGHc'
 
 st.image("assets/Logo_gruppo.jpeg", width=150)
 st.title("🧠 CV Agent")
@@ -18,7 +18,7 @@ if st.button("🚀 Ottimizza CV"):
         #optimized_cv = optimize_cv(original_text, job_description)
         response = api_query(api_key, "Crea un curriculum vitae ottimizzato per la posizione di Data Scientist con 5 anni di esperienza in Python e Machine Learning. Includi le competenze richieste e i risultati ottenuti in progetti precedenti.")
         st.success("✅ CV Ottimizzato!")
-        st.download_button("📥 Scarica CV Ottimizzato", templates.generate_pdf(response['candidates'][0]['content']), file_name="CV_Ottimizzato.pdf")
+        st.download_button("📥 Scarica CV Ottimizzato", templates.generate_pdf(response), file_name="CV_Ottimizzato.pdf")
     else:
         st.error("Carica il CV e inserisci la descrizione del lavoro.")
 
