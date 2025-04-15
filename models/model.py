@@ -30,9 +30,6 @@ def optimize_cv(uploaded_cv, job_description, api_key):
     optimized_cv = api_query(api_key, f"Optimize the following sections Interests and About me for the job description: {job_description}. Use 40 words. CV: {uploaded_cv}")
     
 
-    # Save the optimized CV
-    save_optimized_cv(optimized_cv)
-
     return optimized_cv 
 
 
