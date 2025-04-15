@@ -1,22 +1,22 @@
-from fpdf import FPDF
 
-def generate_pdf(response):
-    """
-    Function to generate a PDF from the response.
-    """
-    # Estrai il testo dalla risposta JSON
-    text = response['candidates'][0]['content']['parts'][0]['text']
-    
-    # Crea un oggetto PDF
-    pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
-    pdf.add_page()
+import io
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
 
-    # Imposta il font
-    pdf.set_font("Arial", size=12)
+def generate_txt(result):
+    # Estrai il testo dal dizionario (adatta alla tua struttura)
+    text = result["candidates"][0]["content"]["parts"][0]["text"]
 
-    # Aggiungi il testo al PDF
-    pdf.multi_cell(0, 10, text)
+    buffer = io.BytesIO()  # crea un buffer in memoria
+    c = canvas.Canvas(buffer, pagesize=A4)
+    c.setFont("Helvetica", 10)
 
-    # Salva il PDF
-    pdf_file = "CV_Ottimizzato.pdf"
+    y = 800
+    for line in text.split("\n"):
+        c.drawString(50, y, line)
+        y -= 15
+
+    c.save()
+
+    buffer.seek(0)  # torna all'inizio del buffer
+    return buffer.read()  # restituisce il contenuto binario del PDF
