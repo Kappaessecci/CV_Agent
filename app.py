@@ -21,8 +21,13 @@ if st.button("🚀 Ottimizza CV"):
     if uploaded_cv and job_description:
         original_text = parser.extract_text(uploaded_cv)
         optimized_cv = optimize_cv(original_text, job_description, api_key)      
-        st.success("✅ CV Ottimizzato!")
-        st.download_button("📥 Scarica CV Ottimizzato", templates.generate_txt(optimized_cv), file_name="CV_Ottimizzato.pdf", mime="application/pdf")
+        format = templates.generate_txt(optimized_cv)       
+        if type(format) == bytes:
+            st.success("✅ CV Ottimizzato!")
+            st.download_button("📥 Scarica CV Ottimizzato", format, file_name="CV_Ottimizzato.pdf", mime="application/pdf")
+        else:
+            st.error(format)
+        
     else:
         st.error("Carica il CV e inserisci la descrizione del lavoro.")
 
