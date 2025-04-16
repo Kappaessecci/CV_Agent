@@ -1,4 +1,4 @@
-#!C:\Users\giuli\PycharmProjects\PythonProject3\.venv\Scripts\python.exe
+#!C:\Users\316970\ProgettiVsCode\CV_Agent\.venv\Scripts\python.exe
 """A command line tool for extracting text and images from PDF and
 output it to plain text, html, xml or tags.
 """

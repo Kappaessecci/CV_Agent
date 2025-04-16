@@ -1,4 +1,4 @@
-#!C:\Users\giuli\PycharmProjects\PythonProject3\.venv\Scripts\python.exe
+#!C:\Users\316970\ProgettiVsCode\CV_Agent\.venv\Scripts\python.exe
 """Extract pdf structure in XML format"""
 
 import logging
